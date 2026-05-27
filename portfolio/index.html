@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrés Sarria · Full Stack Developer</title>
+    <meta name="description" content="Portafolio de Andrés Sarria — Ingeniero de Sistemas especializado en desarrollo web moderno, arquitecturas escalables y bases de datos.">
+    <meta name="theme-color" content="#0d0d14">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Instrument+Serif:ital@0;1&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="cursor-outer"></div>
+<div id="cursor-inner"></div>
+<div id="cursor-text"></div>
+
+<div id="loader">
+    <canvas id="loader-canvas"></canvas>
+    <div class="loader-content">
+        <div class="loader-logo">
+            <span class="loader-bracket">[</span>
+            <span class="loader-initials">AS</span>
+            <span class="loader-bracket">]</span>
+        </div>
+        <div class="loader-bar-wrap">
+            <div class="loader-bar"></div>
+        </div>
+        <div class="loader-terminal">
+            <span id="loader-line"></span><span class="cursor-blink">█</span>
+        </div>
+    </div>
+</div>
+
+<div id="noise"></div>
+
+<nav id="nav">
+    <div class="nav-inner">
+        <a href="#hero" class="nav-logo" data-cursor="Logo">
+            <span class="logo-bracket">[</span><span class="logo-text">AS</span><span class="logo-bracket">]</span>
+            <span class="logo-dot"></span>
+        </a>
+        <div class="nav-links" id="nav-links">
+            <a href="#about" class="nav-link" data-index="01">Sobre mí</a>
+            <a href="#skills" class="nav-link" data-index="02">Skills</a>
+            <a href="#projects" class="nav-link" data-index="03">Proyectos</a>
+            <a href="#contact" class="nav-link" data-index="04">Contacto</a>
+        </div>
+        <div class="nav-cta">
+            <a href="#contact" class="btn-nav">Contratarme</a>
+        </div>
+        <button id="menu-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+    <div class="nav-progress" id="nav-progress"></div>
+</nav>
+
+<div id="mobile-menu">
+    <a href="#about" class="m-link">01 — Sobre mí</a>
+    <a href="#skills" class="m-link">02 — Skills</a>
+    <a href="#projects" class="m-link">03 — Proyectos</a>
+    <a href="#contact" class="m-link">04 — Contacto</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-grid"></div>
+    <div class="hero-vignette"></div>
+
+    <div class="hero-inner">
+        <div class="hero-content">
+            <div class="hero-badge" data-reveal>
+                <span class="badge-dot"></span>
+                <span class="badge-text font-mono">$ full stack developer · disponible</span>
+            </div>
+
+            <h1 class="hero-title" data-reveal>
+                <span class="title-line title-name">Andrés</span>
+                <span class="title-line title-surname">Sarria</span>
+            </h1>
+
+            <div class="hero-roles" data-reveal>
+                <span class="role-static">Full Stack Developer</span>
+                <span class="role-divider">/</span>
+                <span class="role-dynamic" id="role-dynamic"></span>
+            </div>
+
+            <p class="hero-desc" data-reveal>
+                Construyo aplicaciones web completas, desde interfaces fluidas hasta
+                arquitecturas de backend sólidas y bases de datos optimizadas.
+                <em>Full Stack Developer</em> en 9° semestre de Ingeniería de Sistemas.
+            </p>
+
+            <div class="hero-actions" data-reveal>
+                <a href="#projects" class="btn-primary">
+                    <span>Ver proyectos</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                <a href="cv.pdf" download class="btn-ghost">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2v8M5 7l3 3 3-3M3 13h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>Descargar CV</span>
+                </a>
+            </div>
+
+            <div class="hero-socials" data-reveal>
+                <a href="https://github.com/Andresfss09" target="_blank" class="social-btn" data-cursor="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/andres-felipe-sarria-sabogal-7839a4302/" target="_blank" class="social-btn" data-cursor="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="mailto:andressarriasabogal@gmail.com" class="social-btn" data-cursor="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <div class="social-line"></div>
+            </div>
+        </div>
+
+        <div class="hero-terminal" data-reveal>
+            <div class="terminal-header">
+                <div class="terminal-dots">
+                    <span class="dot dot-red"></span>
+                    <span class="dot dot-yellow"></span>
+                    <span class="dot dot-green"></span>
+                </div>
+                <span class="terminal-title font-mono">andres@portfolio:~</span>
+                <span class="terminal-badge">LIVE</span>
+            </div>
+            <div class="terminal-body" id="terminal-body"></div>
+        </div>
+    </div>
+
+    <div class="scroll-cue">
+        <div class="scroll-line"></div>
+        <span class="scroll-label font-mono">scroll</span>
+    </div>
+
+    <div class="stats-strip" data-reveal>
+        <div class="stat-item">
+            <span class="stat-num" data-count="3">0</span>
+            <span class="stat-unit">+</span>
+            <span class="stat-label">años de experiencia</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <span class="stat-num" data-count="15">0</span>
+            <span class="stat-unit">+</span>
+            <span class="stat-label">proyectos completados</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <span class="stat-num" data-count="10">0</span>
+            <span class="stat-unit">+</span>
+            <span class="stat-label">tecnologías dominadas</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <span class="stat-num" data-count="100">0</span>
+            <span class="stat-unit">%</span>
+            <span class="stat-label">dedicación al código</span>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="section-label" data-reveal>
+        <span class="font-mono">01</span>
+        <span class="label-line"></span>
+        <span>SOBRE MÍ</span>
+    </div>
+
+    <div class="about-grid">
+        <div class="about-photo-wrap" data-reveal>
+            <div class="photo-frame">
+                <img src="assets/img/fotohdv.jpeg" alt="Andrés Sarria" class="about-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                <div class="photo-placeholder" style="display:none">
+                    <span class="font-bebas" style="font-size:5rem;color:var(--accent)">AS</span>
+                </div>
+                <div class="photo-overlay"></div>
+                <div class="corner corner-tl"></div>
+                <div class="corner corner-tr"></div>
+                <div class="corner corner-bl"></div>
+                <div class="corner corner-br"></div>
+            </div>
+            <div class="exp-badge" data-reveal>
+                <span class="exp-num font-bebas">9°</span>
+                <span class="exp-text">Semestre<br>Ing. Sistemas</span>
+            </div>
+        </div>
+
+        <div class="about-text" data-reveal>
+            <h2 class="section-title">
+                Construyendo el web<br>
+                <em class="title-italic">de principio a fin.</em>
+            </h2>
+
+            <div class="about-body">
+                <p>
+                    Soy <strong>Andrés Sarria</strong>, desarrollador Full Stack con dominio
+                    sólido en <strong>frontend, backend y bases de datos</strong>. Me apasiona
+                    crear productos digitales completos, funcionales y con gran experiencia de usuario.
+                </p>
+                <p>
+                    Trabajo con múltiples tecnologías modernas y me adapto rápido a nuevos stacks.
+                    También tengo conocimientos en ciberseguridad que me permiten escribir código
+                    más robusto y consciente de las vulnerabilidades comunes.
+                </p>
+            </div>
+
+            <div class="about-tags">
+                <span class="tag">Frontend Development</span>
+                <span class="tag">Backend Development</span>
+                <span class="tag">REST APIs</span>
+                <span class="tag">Bases de Datos</span>
+                <span class="tag">UI / UX</span>
+                <span class="tag">Responsive Design</span>
+                <span class="tag">Web Security</span>
+                <span class="tag">Clean Code</span>
+            </div>
+
+            <div class="about-certs">
+                <div class="cert-item">
+                    <i class="fas fa-laptop-code"></i>
+                    <div>
+                        <strong>Full Stack Development</strong>
+                        <span>Frontend, Backend & Bases de datos</span>
+                    </div>
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-paint-brush"></i>
+                    <div>
+                        <strong>UI / UX & Diseño Web</strong>
+                        <span>Interfaces modernas y responsivas</span>
+                    </div>
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <div>
+                        <strong>Web Security</strong>
+                        <span>Buenas prácticas OWASP</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+    <div class="section-label" data-reveal>
+        <span class="font-mono">02</span>
+        <span class="label-line"></span>
+        <span>STACK TECNOLÓGICO</span>
+    </div>
+
+    <div class="skills-header" data-reveal>
+        <h2 class="section-title">
+            Stack que domino<br>
+            <em class="title-italic">de arriba a abajo.</em>
+        </h2>
+    </div>
+
+    <div class="skills-tabs" data-reveal>
+        <button class="skill-tab active" data-tab="frontend">Frontend</button>
+        <button class="skill-tab" data-tab="backend">Backend</button>
+        <button class="skill-tab" data-tab="security">Diseño & UI</button>
+        <button class="skill-tab" data-tab="tools">Herramientas</button>
+    </div>
+
+    <div class="skills-panels">
+        <!-- Frontend -->
+        <div class="skills-panel active" id="tab-frontend">
+            <div class="skill-cards">
+                <div class="skill-card" data-level="90">
+                    <div class="skill-icon"><i class="fab fa-html5"></i></div>
+                    <div class="skill-info">
+                        <span class="skill-name">HTML5</span>
+                        <div class="skill-bar"><div class="skill-fill" data-w="90"></div></div>
+                    </div>
+                    <span class="skill-pct">90%</span>
+                </div>
+                <div class="skill-card" data-level="85">
+                    <div class="skill-icon"><i class="fab fa-css3-alt"></i></div>
+                    <div class="skill-info">
+                        <span class="skill-name">CSS3 + Tailwind</span>
+                        <div class="skill-bar"><div class="skill-fill" data-w="85"></div></div>
+                    </div>
+                    <span class="skill-pct">85%</span>
+                </div>
+                <div class="skill-card" data-level="85">
+                    <div class="skill-icon"><i class="fab fa-js"></i></div>
+                    <div class="skill-info">
+                        <span class="skill-name">JavaScript ES2024</span>
+                        <div class="skill-bar"><div class="skill-fill" data-w="85"></div></div>
+                    </div>
+                    <span class="skill-pct">85%</span>
+                </div>
+                <div class="skill-card" data-level="70">
+                    <div class="skill-icon"><i class="fab fa-react"></i></div>
+                    <div class="skill-info">
+                        <span class="skill-name">React / Next.js</span>
+                        <div class="skill-bar"><div class="skill-fill" data-w="70"></div></div>
+                    </div>
+                    <span class="skill-pct">70%</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Backend -->
+        <div class="skills-panel" id="tab-backend">
+            <div class="skill-cards">
+                <div class="skill-card" data-level="80">
+                    <div class="skill-icon"><i class="fab fa-java"></i></div>
+                    <div class="skill-info">
+                        <span class="skill-name">Java / Spring Boot</span>
+                        <div class="skill-bar"><div class="skill-fill" data-w="80"></div></div>
+                    </div>
+                    <span class="skill-pct">80%</span>
+                </div>
+                <div class="skill-card" data-level="75">
+                    <div class="skill-icon"><i class="fab fa-python"></i></div>
+                    <div class="skill-info">
+                        <span class="skill-name">Python / FastAPI</span>
+                        <div class="skill-bar"><div class="skill-fill" data-w="75"></div></div>
+                    </div>
+                    <span class="skill-pct">75%</span>
+                </div>
+                <div class="skill-card" data-level="80">
+                    <div class="skill-icon"><i class="fas fa-database"></i></div>
+                    <div class="skill-info">
+                        <span class="skill-name">SQL / NoSQL</span>
+                        <div class="skill-bar"><div class="skill-fill" data-w="80"></div></div>
+                    </div>
+                    <span class="skill-pct">80%</span>
+                </div>
+                <div class="skill-card" data-level="65">
+                    <div class="skill-icon"><i class="fab fa-node-js"></i></div>
+                    <div class="skill-info">
+                        <span class="skill-name">Node.js / Express</span>
+                        <div class="skill-bar"><div class="skill-fill" data-w="65"></div></div>
+                    </div>
+                    <span class="skill-pct">65%</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Diseño & UI -->
+        <div class="skills-panel" id="tab-security">
+            <div class="skill-cards">
+                <div class="skill-card" data-level="85">
+                    <div class="skill-icon"><i class="fas fa-pencil-ruler"></i></div>
+                    <div class="skill-info">
+                        <span class="skill-name">UI / UX Design</span>
+                        <div class="skill-bar"><div class="skill-fill" data-w="85"></div></div>
+                    </div>
+                    <span class="skill-pct">85%</span>
+                </div>
+                <div class="skill-card" data-level="80">
+                    <div class="skill-icon"><i class="fab fa-figma"></i></div>
+                    <div class="skill-info">
+                        <span class="skill-name">Figma / Prototipado</span>
+                        <div class="skill-bar"><div class="skill-fill" data-w="80"></div></div>
+                    </div>
+                    <span class="skill-pct">80%</span>
+                </div>
+                <div class="skill-card" data-level="75">
+                    <div class="skill-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <div class="skill-info">
+                        <span class="skill-name">Responsive Design</span>
+                        <div class="skill-bar"><div class="skill-fill" data-w="75"></div></div>
+                    </div>
+                    <span class="skill-pct">75%</span>
+                </div>
+                <div class="skill-card" data-level="65">
+                    <div class="skill-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div class="skill-info">
+                        <span class="skill-name">Web Security (OWASP)</span>
+                        <div class="skill-bar"><div class="skill-fill" data-w="65"></div></div>
+                    </div>
+                    <span class="skill-pct">65%</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Herramientas -->
+        <div class="skills-panel" id="tab-tools">
+            <div class="skill-cards">
+                <div class="skill-card" data-level="85">
+                    <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
+                    <div class="skill-info">
+                        <span class="skill-name">Git / GitHub</span>
+                        <div class="skill-bar"><div class="skill-fill" data-w="85"></div></div>
+                    </div>
+                    <span class="skill-pct">85%</span>
+                </div>
+                <div class="skill-card" data-level="70">
+                    <div class="skill-icon"><i class="fab fa-docker"></i></div>
+                    <div class="skill-info">
+                        <span class="skill-name">Docker / Linux</span>
+                        <div class="skill-bar"><div class="skill-fill" data-w="70"></div></div>
+                    </div>
+                    <span class="skill-pct">70%</span>
+                </div>
+                <div class="skill-card" data-level="75">
+                    <div class="skill-icon"><i class="fas fa-terminal"></i></div>
+                    <div class="skill-info">
+                        <span class="skill-name">Bash / Scripting</span>
+                        <div class="skill-bar"><div class="skill-fill" data-w="75"></div></div>
+                    </div>
+                    <span class="skill-pct">75%</span>
+                </div>
+                <div class="skill-card" data-level="65">
+                    <div class="skill-icon"><i class="fab fa-aws"></i></div>
+                    <div class="skill-info">
+                        <span class="skill-name">AWS / Cloud</span>
+                        <div class="skill-bar"><div class="skill-fill" data-w="65"></div></div>
+                    </div>
+                    <span class="skill-pct">65%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="marquee-wrap" data-reveal>
+        <div class="marquee-track">
+            <div class="marquee-item"><i class="fab fa-python"></i> Python</div>
+            <div class="marquee-item"><i class="fab fa-java"></i> Java</div>
+            <div class="marquee-item"><i class="fab fa-js"></i> JavaScript</div>
+            <div class="marquee-item"><i class="fab fa-react"></i> React</div>
+            <div class="marquee-item"><i class="fas fa-database"></i> PostgreSQL</div>
+            <div class="marquee-item"><i class="fab fa-docker"></i> Docker</div>
+            <div class="marquee-item"><i class="fab fa-figma"></i> Figma</div>
+            <div class="marquee-item"><i class="fas fa-database"></i> MongoDB</div>
+            <div class="marquee-item"><i class="fab fa-git-alt"></i> Git</div>
+            <div class="marquee-item"><i class="fab fa-linux"></i> Linux</div>
+            <div class="marquee-item"><i class="fab fa-python"></i> Python</div>
+            <div class="marquee-item"><i class="fab fa-java"></i> Java</div>
+            <div class="marquee-item"><i class="fab fa-js"></i> JavaScript</div>
+            <div class="marquee-item"><i class="fab fa-react"></i> React</div>
+            <div class="marquee-item"><i class="fas fa-database"></i> PostgreSQL</div>
+            <div class="marquee-item"><i class="fab fa-docker"></i> Docker</div>
+            <div class="marquee-item"><i class="fab fa-figma"></i> Figma</div>
+            <div class="marquee-item"><i class="fas fa-database"></i> MongoDB</div>
+            <div class="marquee-item"><i class="fab fa-git-alt"></i> Git</div>
+            <div class="marquee-item"><i class="fab fa-linux"></i> Linux</div>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+    <div class="section-label" data-reveal>
+        <span class="font-mono">03</span>
+        <span class="label-line"></span>
+        <span>PROYECTOS</span>
+    </div>
+
+    <div class="projects-header" data-reveal>
+        <h2 class="section-title">
+            Código que<br>
+            <em class="title-italic">habla por sí solo.</em>
+        </h2>
+        <a href="https://github.com/Andresfss09" target="_blank" class="btn-ghost btn-sm">
+            <i class="fab fa-github"></i> Ver GitHub
+        </a>
+    </div>
+
+    <div id="repos-grid" class="repos-grid">
+        <div class="repos-loading">
+            <div class="loading-spinner"></div>
+            <span class="font-mono">Cargando repositorios...</span>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <div class="section-label" data-reveal>
+        <span class="font-mono">04</span>
+        <span class="label-line"></span>
+        <span>CONTACTO</span>
+    </div>
+
+    <div class="contact-wrap">
+        <div class="contact-text" data-reveal>
+            <h2 class="section-title contact-title">
+                Hagamos algo<br>
+                <em class="title-italic">increíble juntos.</em>
+            </h2>
+            <p class="contact-desc">
+                ¿Tienes un proyecto, una oportunidad laboral o simplemente quieres
+                hablar sobre tecnología? Mi inbox siempre está abierto.
+            </p>
+
+            <div class="contact-channels">
+                <a href="mailto:andressarriasabogal@gmail.com" class="channel-item" data-cursor="Email">
+                    <div class="channel-icon"><i class="fas fa-envelope"></i></div>
+                    <div class="channel-info">
+                        <span class="channel-label font-mono">email</span>
+                        <span class="channel-value">andressarriasabogal@gmail.com</span>
+                    </div>
+                    <i class="fas fa-arrow-right channel-arrow"></i>
+                </a>
+                <a href="https://github.com/Andresfss09" target="_blank" class="channel-item" data-cursor="GitHub">
+                    <div class="channel-icon"><i class="fab fa-github"></i></div>
+                    <div class="channel-info">
+                        <span class="channel-label font-mono">github</span>
+                        <span class="channel-value">@Andresfss09</span>
+                    </div>
+                    <i class="fas fa-arrow-right channel-arrow"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/andres-felipe-sarria-sabogal-7839a4302/" target="_blank" class="channel-item" data-cursor="LinkedIn">
+                    <div class="channel-icon"><i class="fab fa-linkedin-in"></i></div>
+                    <div class="channel-info">
+                        <span class="channel-label font-mono">linkedin</span>
+                        <span class="channel-value">andres-felipe-sarria-sabogal-7839a4302</span>
+                    </div>
+                    <i class="fas fa-arrow-right channel-arrow"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="contact-form-wrap" data-reveal>
+            <form id="contact-form" class="contact-form" novalidate>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label font-mono">nombre</label>
+                        <input type="text" class="form-input" placeholder="Tu nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label font-mono">email</label>
+                        <input type="email" class="form-input" placeholder="tu@email.com" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label font-mono">asunto</label>
+                    <input type="text" class="form-input" placeholder="¿De qué trata?" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label font-mono">mensaje</label>
+                    <textarea class="form-input form-textarea" rows="5" placeholder="Cuéntame sobre tu proyecto..." required></textarea>
+                </div>
+                <button type="submit" class="btn-primary btn-full">
+                    <span>Enviar mensaje</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8l10-6-3 6 3 6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <span class="logo-bracket">[</span><span class="logo-text">AS</span><span class="logo-bracket">]</span>
+        </div>
+        <p class="footer-copy font-mono">© 2026 Ingeniero Andrés Felipe Sarria Sabogal.</p>
+        <div class="footer-socials">
+            <a href="https://github.com/Andresfss09" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/andres-felipe-sarria-sabogal-7839a4302/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="mailto:andressarriasabogal@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+    </div>
+    <div class="footer-line"></div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="script.js"></script>
+<script src="github.js"></script>
+</body>
+</html>
