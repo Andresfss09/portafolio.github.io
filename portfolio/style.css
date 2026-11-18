@@ -175,14 +175,14 @@ ul, ol { list-style: none; }
 .btn-full { width: 100%; }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    color: #ffffff;
-    box-shadow: 0 8px 24px -6px var(--accent-glow);
+    background: var(--text);
+    color: var(--bg);
+    border: 1px solid var(--text);
+    box-shadow: var(--shadow-sm);
 }
 .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 14px 30px -6px var(--accent-glow);
-    filter: brightness(1.06);
+    transform: translateY(-1px);
+    opacity: 0.92;
 }
 
 .btn-secondary {
@@ -497,19 +497,34 @@ ul, ol { list-style: none; }
     align-items: center;
 }
 
-.availability-pill {
+.hero-status-line {
     display: inline-flex;
     align-items: center;
-    gap: 0.6rem;
-    padding: 0.42rem 0.9rem;
-    border-radius: 999px;
-    background: var(--emerald-soft);
-    border: 1px solid rgba(16, 185, 129, 0.28);
-    color: var(--emerald);
-    font-family: var(--font-mono);
-    font-size: 0.76rem;
-    font-weight: 500;
-    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin-bottom: 1.4rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid var(--border-strong);
+    font-size: 0.84rem;
+    color: var(--text-2);
+}
+
+.status-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.status-sep {
+    color: var(--text-3);
+    user-select: none;
+}
+
+.status-loc {
+    color: var(--text-2);
+    font-weight: 400;
 }
 
 .status-dot,
@@ -520,17 +535,10 @@ ul, ol { list-style: none; }
     flex-shrink: 0;
 }
 .status-dot {
-    width: 8px;
-    height: 8px;
-    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.55);
-    animation: pulseEmerald 2.2s infinite;
+    width: 7px;
+    height: 7px;
 }
-.status-dot-sm { width: 7px; height: 7px; }
-
-@keyframes pulseEmerald {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5); }
-    60% { box-shadow: 0 0 0 7px rgba(16, 185, 129, 0); }
-}
+.status-dot-sm { width: 6px; height: 6px; }
 
 .hero-eyebrow {
     display: block;

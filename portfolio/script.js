@@ -23,7 +23,8 @@
             'nav.contact': 'Contacto',
             'nav.hire': 'Contratar',
 
-            'hero.availability': 'Disponible para incorporación inmediata · Remoto / Híbrido / Cali, CO',
+            'hero.availability': 'Disponible para vinculación',
+            'hero.location': 'Santiago de Cali, Colombia · Remoto o presencial',
             'hero.eyebrow': 'Ingeniería de Sistemas · Desarrollo Web & QA',
             'hero.lead': 'Diseño y construyo aplicaciones web funcionales, limpias y centradas en el usuario. Combino <strong>desarrollo Full Stack</strong>, <strong>bases de datos SQL &amp; NoSQL</strong>, experiencia en <strong>QA bajo Scrum y Kanban</strong>, y una base sólida en <strong>redes, ciberseguridad e IoT</strong> para entregar soluciones confiables de principio a fin.',
             'hero.ctaHire': 'Contactar para contratación',
@@ -151,7 +152,8 @@
             'nav.contact': 'Contact',
             'nav.hire': 'Hire me',
 
-            'hero.availability': 'Available immediately · Remote / Hybrid / Cali, Colombia',
+            'hero.availability': 'Available for hire',
+            'hero.location': 'Santiago de Cali, Colombia · Remote or on-site',
             'hero.eyebrow': 'Systems Engineering · Web Development & QA',
             'hero.lead': 'I design and engineer clean, functional, user-centered web applications. Combining <strong>Full Stack web development</strong>, <strong>SQL &amp; NoSQL databases</strong>, hands-on <strong>QA experience with Scrum &amp; Kanban</strong>, and strong foundations in <strong>networking, cybersecurity, and IoT</strong> to deliver reliable end-to-end software.',
             'hero.ctaHire': 'Schedule an interview',
