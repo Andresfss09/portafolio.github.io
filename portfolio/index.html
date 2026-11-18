@@ -1,583 +1,933 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Andrés Sarria · Full Stack Developer</title>
-    <meta name="description" content="Portafolio de Andrés Sarria — Ingeniero de Sistemas especializado en desarrollo web moderno, arquitecturas escalables y bases de datos.">
-    <meta name="theme-color" content="#0d0d14">
+    <title>Andrés Felipe Sarria · Ingeniero de Sistemas &amp; Desarrollador Full Stack</title>
+    <meta name="description" content="Portafolio profesional de Andrés Felipe Sarria Sabogal — Estudiante de 10° semestre de Ingeniería de Sistemas (USC), especializado en desarrollo web Full Stack, UI/UX, bases de datos SQL/NoSQL, QA ágil (Scrum/Kanban), redes y ciberseguridad.">
+    <meta name="keywords" content="Andrés Felipe Sarria Sabogal, Ingeniero de Sistemas, Desarrollador Web, Full Stack Developer, QA Tester, Scrum, Kanban, SQL, NoSQL, Ciberseguridad Cisco, Cali, Colombia">
+    <meta name="author" content="Andrés Felipe Sarria Sabogal">
+    <meta name="theme-color" content="#090b10">
 
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Andrés Felipe Sarria · Ingeniero de Sistemas &amp; Full Stack Developer">
+    <meta property="og:description" content="Desarrollo web moderno, bases de datos SQL/NoSQL, aseguramiento de calidad (QA) con Scrum/Kanban y fundamentos certificados en redes y ciberseguridad.">
+    <meta property="og:image" content="assets/img/fotohdv.jpeg">
+    <meta property="og:locale" content="es_CO">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Andrés Felipe Sarria · Full Stack Developer &amp; Systems Engineer">
+    <meta name="twitter:description" content="Portafolio técnico — Ingeniería de Sistemas (10° Semestre, USC). Disponible para oportunidades en desarrollo web y QA.">
+
+    <!-- Inline SVG Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23090b10'/%3E%3Crect x='2' y='2' width='60' height='60' rx='12' fill='none' stroke='%2338bdf8' stroke-width='2.5' stroke-opacity='0.6'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='system-ui,-apple-system,sans-serif' font-weight='800' font-size='26' fill='%23f1f5f9'%3EAS%3C/text%3E%3Ccircle cx='50' cy='16' r='4' fill='%2310b981'/%3E%3C/svg%3E">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Instrument+Serif:ital@0;1&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- Prevent Theme Flash -->
+    <script>
+        (function () {
+            try {
+                var savedTheme = localStorage.getItem('as_theme');
+                if (savedTheme === 'light' || savedTheme === 'dark') {
+                    document.documentElement.setAttribute('data-theme', savedTheme);
+                }
+            } catch (e) {}
+        })();
+    </script>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Andrés Felipe Sarria Sabogal",
+        "jobTitle": "Ingeniero de Sistemas en Formación · Desarrollador Web Full Stack",
+        "url": "https://andresfss09.github.io/portafolio.github.io/portfolio/",
+        "email": "mailto:andressarriasabogal@gmail.com",
+        "telephone": "+57-318-575-3889",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Santiago de Cali",
+            "addressRegion": "Valle del Cauca",
+            "addressCountry": "CO"
+        },
+        "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Universidad Santiago de Cali"
+        },
+        "sameAs": [
+            "https://github.com/Andresfss09",
+            "https://www.linkedin.com/in/andres-felipe-sarria-sabogal-7839a4302/"
+        ],
+        "knowsAbout": [
+            "Web Development",
+            "Full Stack Development",
+            "SQL and NoSQL Databases",
+            "Software Quality Assurance (QA)",
+            "Scrum",
+            "Kanban",
+            "Computer Networks",
+            "Cybersecurity",
+            "Operating Systems",
+            "Internet of Things (IoT)"
+        ]
+    }
+    </script>
 
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div id="cursor-outer"></div>
-<div id="cursor-inner"></div>
-<div id="cursor-text"></div>
+<a href="#main-content" class="skip-link" data-i18n="a11y.skip">Saltar al contenido principal</a>
 
-<div id="loader">
-    <canvas id="loader-canvas"></canvas>
-    <div class="loader-content">
-        <div class="loader-logo">
-            <span class="loader-bracket">[</span>
-            <span class="loader-initials">AS</span>
-            <span class="loader-bracket">]</span>
+<!-- HEADER / NAVIGATION -->
+<header id="site-header" class="site-header">
+    <div class="container header-inner">
+        <a href="#hero" class="brand" aria-label="Andrés Sarria - Inicio">
+            <span class="brand-mark" aria-hidden="true">
+                AS
+                <span class="brand-status"></span>
+            </span>
+            <span class="brand-text">
+                <strong>Andrés Sarria</strong>
+                <small data-i18n="nav.subtitle">Systems &amp; Web Engineer</small>
+            </span>
+        </a>
+
+        <nav class="nav-desktop" aria-label="Navegación principal">
+            <a href="#about" class="nav-link" data-i18n="nav.about">Perfil</a>
+            <a href="#skills" class="nav-link" data-i18n="nav.skills">Capacidades</a>
+            <a href="#projects" class="nav-link" data-i18n="nav.projects">Proyectos</a>
+            <a href="#trajectory" class="nav-link" data-i18n="nav.trajectory">Trayectoria</a>
+            <a href="#contact" class="nav-link" data-i18n="nav.contact">Contacto</a>
+        </nav>
+
+        <div class="header-actions">
+            <button type="button" id="cmd-trigger" class="icon-pill cmd-pill" aria-label="Abrir paleta de comandos (Ctrl+K)" title="Paleta de comandos (Ctrl+K)">
+                <i class="fas fa-terminal" aria-hidden="true"></i>
+                <kbd>Ctrl K</kbd>
+            </button>
+
+            <button type="button" id="lang-toggle" class="icon-pill" aria-label="Cambiar idioma" title="Cambiar idioma (ES / EN)">
+                <span id="lang-label">EN</span>
+            </button>
+
+            <button type="button" id="theme-toggle" class="icon-pill" aria-label="Cambiar tema claro/oscuro" title="Cambiar tema">
+                <i class="fas fa-sun" id="theme-icon" aria-hidden="true"></i>
+            </button>
+
+            <a href="#contact" class="btn btn-primary btn-sm nav-hire-btn" data-i18n="nav.hire">Contratar</a>
+
+            <button type="button" id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-drawer">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
-        <div class="loader-bar-wrap">
-            <div class="loader-bar"></div>
-        </div>
-        <div class="loader-terminal">
-            <span id="loader-line"></span><span class="cursor-blink">█</span>
+    </div>
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+</header>
+
+<!-- MOBILE DRAWER -->
+<div id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
+    <div class="mobile-drawer-inner">
+        <nav class="mobile-nav" aria-label="Navegación móvil">
+            <a href="#about" class="mobile-link"><span class="mono-num">01</span><span data-i18n="nav.about">Perfil</span></a>
+            <a href="#skills" class="mobile-link"><span class="mono-num">02</span><span data-i18n="nav.skills">Capacidades</span></a>
+            <a href="#projects" class="mobile-link"><span class="mono-num">03</span><span data-i18n="nav.projects">Proyectos</span></a>
+            <a href="#trajectory" class="mobile-link"><span class="mono-num">04</span><span data-i18n="nav.trajectory">Trayectoria</span></a>
+            <a href="#contact" class="mobile-link"><span class="mono-num">05</span><span data-i18n="nav.contact">Contacto</span></a>
+        </nav>
+        <div class="mobile-actions">
+            <a href="cv.pdf" download="CV-Andres-Felipe-Sarria-Sabogal.pdf" class="btn btn-secondary btn-full">
+                <i class="fas fa-file-arrow-down" aria-hidden="true"></i>
+                <span data-i18n="hero.downloadCv">Descargar CV (PDF)</span>
+            </a>
+            <a href="#contact" class="btn btn-primary btn-full mobile-close-trigger" data-i18n="hero.ctaHire">Agendar entrevista</a>
         </div>
     </div>
 </div>
 
-<div id="noise"></div>
+<main id="main-content">
 
-<nav id="nav">
-    <div class="nav-inner">
-        <a href="#hero" class="nav-logo" data-cursor="Logo">
-            <span class="logo-bracket">[</span><span class="logo-text">AS</span><span class="logo-bracket">]</span>
-            <span class="logo-dot"></span>
-        </a>
-        <div class="nav-links" id="nav-links">
-            <a href="#about" class="nav-link" data-index="01">Sobre mí</a>
-            <a href="#skills" class="nav-link" data-index="02">Skills</a>
-            <a href="#projects" class="nav-link" data-index="03">Proyectos</a>
-            <a href="#contact" class="nav-link" data-index="04">Contacto</a>
-        </div>
-        <div class="nav-cta">
-            <a href="#contact" class="btn-nav">Contratarme</a>
-        </div>
-        <button id="menu-toggle" aria-label="Menu">
-            <span></span><span></span><span></span>
-        </button>
-    </div>
-    <div class="nav-progress" id="nav-progress"></div>
-</nav>
+    <!-- ═══════════════════════════════════════════
+         HERO SECTION
+    ════════════════════════════════════════════ -->
+    <section id="hero" class="hero">
+        <canvas id="hero-network" class="hero-canvas" aria-hidden="true"></canvas>
+        <div class="hero-grid-bg" aria-hidden="true"></div>
+        <div class="hero-glow" aria-hidden="true"></div>
 
-<div id="mobile-menu">
-    <a href="#about" class="m-link">01 — Sobre mí</a>
-    <a href="#skills" class="m-link">02 — Skills</a>
-    <a href="#projects" class="m-link">03 — Proyectos</a>
-    <a href="#contact" class="m-link">04 — Contacto</a>
-</div>
-
-<!-- HERO -->
-<section id="hero">
-    <canvas id="hero-canvas"></canvas>
-    <div class="hero-grid"></div>
-    <div class="hero-vignette"></div>
-
-    <div class="hero-inner">
-        <div class="hero-content">
-            <div class="hero-badge" data-reveal>
-                <span class="badge-dot"></span>
-                <span class="badge-text font-mono">$ full stack developer · disponible</span>
-            </div>
-
-            <h1 class="hero-title" data-reveal>
-                <span class="title-line title-name">Andrés</span>
-                <span class="title-line title-surname">Sarria</span>
-            </h1>
-
-            <div class="hero-roles" data-reveal>
-                <span class="role-static">Full Stack Developer</span>
-                <span class="role-divider">/</span>
-                <span class="role-dynamic" id="role-dynamic"></span>
-            </div>
-
-            <p class="hero-desc" data-reveal>
-                Construyo aplicaciones web completas, desde interfaces fluidas hasta
-                arquitecturas de backend sólidas y bases de datos optimizadas.
-                <em>Full Stack Developer</em> en 9° semestre de Ingeniería de Sistemas.
-            </p>
-
-            <div class="hero-actions" data-reveal>
-                <a href="#projects" class="btn-primary">
-                    <span>Ver proyectos</span>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </a>
-                <a href="cv.pdf" download class="btn-ghost">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2v8M5 7l3 3 3-3M3 13h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    <span>Descargar CV</span>
-                </a>
-            </div>
-
-            <div class="hero-socials" data-reveal>
-                <a href="https://github.com/Andresfss09" target="_blank" class="social-btn" data-cursor="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/andres-felipe-sarria-sabogal-7839a4302/" target="_blank" class="social-btn" data-cursor="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="mailto:andressarriasabogal@gmail.com" class="social-btn" data-cursor="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <div class="social-line"></div>
-            </div>
-        </div>
-
-        <div class="hero-terminal" data-reveal>
-            <div class="terminal-header">
-                <div class="terminal-dots">
-                    <span class="dot dot-red"></span>
-                    <span class="dot dot-yellow"></span>
-                    <span class="dot dot-green"></span>
+        <div class="container hero-container">
+            <div class="hero-copy">
+                <div class="availability-pill">
+                    <span class="status-dot" aria-hidden="true"></span>
+                    <span data-i18n="hero.availability">Disponible para incorporación inmediata · Remoto / Híbrido / Cali, CO</span>
                 </div>
-                <span class="terminal-title font-mono">andres@portfolio:~</span>
-                <span class="terminal-badge">LIVE</span>
-            </div>
-            <div class="terminal-body" id="terminal-body"></div>
-        </div>
-    </div>
 
-    <div class="scroll-cue">
-        <div class="scroll-line"></div>
-        <span class="scroll-label font-mono">scroll</span>
-    </div>
+                <h1 class="hero-title">
+                    <span class="hero-eyebrow" data-i18n="hero.eyebrow">Ingeniería de Sistemas · Desarrollo Web &amp; QA</span>
+                    Andrés Felipe <span class="text-gradient">Sarria Sabogal</span>
+                </h1>
 
-    <div class="stats-strip" data-reveal>
-        <div class="stat-item">
-            <span class="stat-num" data-count="3">0</span>
-            <span class="stat-unit">+</span>
-            <span class="stat-label">años de experiencia</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-            <span class="stat-num" data-count="15">0</span>
-            <span class="stat-unit">+</span>
-            <span class="stat-label">proyectos completados</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-            <span class="stat-num" data-count="10">0</span>
-            <span class="stat-unit">+</span>
-            <span class="stat-label">tecnologías dominadas</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-            <span class="stat-num" data-count="100">0</span>
-            <span class="stat-unit">%</span>
-            <span class="stat-label">dedicación al código</span>
-        </div>
-    </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-    <div class="section-label" data-reveal>
-        <span class="font-mono">01</span>
-        <span class="label-line"></span>
-        <span>SOBRE MÍ</span>
-    </div>
-
-    <div class="about-grid">
-        <div class="about-photo-wrap" data-reveal>
-            <div class="photo-frame">
-                <img src="assets/img/fotohdv.jpeg" alt="Andrés Sarria" class="about-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                <div class="photo-placeholder" style="display:none">
-                    <span class="font-bebas" style="font-size:5rem;color:var(--accent)">AS</span>
-                </div>
-                <div class="photo-overlay"></div>
-                <div class="corner corner-tl"></div>
-                <div class="corner corner-tr"></div>
-                <div class="corner corner-bl"></div>
-                <div class="corner corner-br"></div>
-            </div>
-            <div class="exp-badge" data-reveal>
-                <span class="exp-num font-bebas">9°</span>
-                <span class="exp-text">Semestre<br>Ing. Sistemas</span>
-            </div>
-        </div>
-
-        <div class="about-text" data-reveal>
-            <h2 class="section-title">
-                Construyendo el web<br>
-                <em class="title-italic">de principio a fin.</em>
-            </h2>
-
-            <div class="about-body">
-                <p>
-                    Soy <strong>Andrés Sarria</strong>, desarrollador Full Stack con dominio
-                    sólido en <strong>frontend, backend y bases de datos</strong>. Me apasiona
-                    crear productos digitales completos, funcionales y con gran experiencia de usuario.
+                <p class="hero-lead" data-i18n="hero.lead">
+                    Diseño y construyo aplicaciones web funcionales, limpias y centradas en el usuario. Combino <strong>desarrollo Full Stack</strong>, <strong>bases de datos SQL &amp; NoSQL</strong>, experiencia en <strong>QA bajo Scrum y Kanban</strong>, y una base sólida en <strong>redes, ciberseguridad e IoT</strong> para entregar soluciones confiables de principio a fin.
                 </p>
-                <p>
-                    Trabajo con múltiples tecnologías modernas y me adapto rápido a nuevos stacks.
-                    También tengo conocimientos en ciberseguridad que me permiten escribir código
-                    más robusto y consciente de las vulnerabilidades comunes.
+
+                <div class="hero-cta-group">
+                    <a href="#contact" class="btn btn-primary btn-lg">
+                        <span data-i18n="hero.ctaHire">Contactar para contratación</span>
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <a href="cv.pdf" download="CV-Andres-Felipe-Sarria-Sabogal.pdf" class="btn btn-secondary btn-lg">
+                        <i class="fas fa-file-pdf" aria-hidden="true"></i>
+                        <span data-i18n="hero.downloadCv">Descargar CV</span>
+                    </a>
+                    <button type="button" class="btn btn-ghost btn-lg" data-copy-email="andressarriasabogal@gmail.com">
+                        <i class="far fa-copy" aria-hidden="true"></i>
+                        <span data-i18n="hero.copyEmail">Copiar email</span>
+                    </button>
+                </div>
+
+                <div class="hero-meta-bar">
+                    <div class="hero-social-links">
+                        <a href="https://github.com/Andresfss09" target="_blank" rel="noopener noreferrer" class="social-chip" aria-label="GitHub de Andrés Sarria">
+                            <i class="fab fa-github" aria-hidden="true"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/andres-felipe-sarria-sabogal-7839a4302/" target="_blank" rel="noopener noreferrer" class="social-chip" aria-label="LinkedIn de Andrés Sarria">
+                            <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://wa.me/573185753889?text=Hola%20Andr%C3%A9s%2C%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20conversar%20sobre%20una%20oportunidad." target="_blank" rel="noopener noreferrer" class="social-chip" aria-label="WhatsApp de Andrés Sarria">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                            <span>WhatsApp</span>
+                        </a>
+                        <a href="cv.pdf" target="_blank" rel="noopener noreferrer" class="social-chip" aria-label="Ver CV en nueva pestaña">
+                            <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                            <span data-i18n="hero.viewCv">Ver CV</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Engineering Dossier Panel -->
+            <aside class="dossier-card" aria-label="Ficha técnica del perfil">
+                <div class="dossier-header">
+                    <div class="window-dots" aria-hidden="true">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <div class="dossier-tabs" role="tablist" aria-label="Vistas del perfil técnico">
+                        <button type="button" class="dossier-tab active" role="tab" aria-selected="true" data-dossier-tab="profile">profile.json</button>
+                        <button type="button" class="dossier-tab" role="tab" aria-selected="false" data-dossier-tab="stack">stack.yml</button>
+                        <button type="button" class="dossier-tab" role="tab" aria-selected="false" data-dossier-tab="hire">hire.sh</button>
+                    </div>
+                    <span class="dossier-badge">
+                        <span class="status-dot-sm"></span> READY
+                    </span>
+                </div>
+
+                <div class="dossier-body">
+                    <div class="dossier-panel active" id="dossier-profile" role="tabpanel">
+<pre class="code-block"><code><span class="c-punct">{</span>
+  <span class="c-key">"engineer"</span>: <span class="c-str">"Andrés Felipe Sarria Sabogal"</span>,
+  <span class="c-key">"education"</span>: <span class="c-str">"Ing. de Sistemas · 10° Semestre (USC)"</span>,
+  <span class="c-key">"location"</span>: <span class="c-str">"Santiago de Cali, Colombia"</span>,
+  <span class="c-key">"specialization"</span>: <span class="c-punct">[</span>
+    <span class="c-str">"Full Stack Web Development"</span>,
+    <span class="c-str">"UI / UX &amp; Responsive Interfaces"</span>,
+    <span class="c-str">"QA Testing (Scrum &amp; Kanban)"</span>
+  <span class="c-punct">]</span>,
+  <span class="c-key">"systemsFoundation"</span>: <span class="c-punct">[</span>
+    <span class="c-str">"SQL &amp; NoSQL"</span>, <span class="c-str">"Networks"</span>,
+    <span class="c-str">"Cybersecurity"</span>, <span class="c-str">"OS"</span>, <span class="c-str">"IoT"</span>
+  <span class="c-punct">]</span>,
+  <span class="c-key">"languages"</span>: <span class="c-punct">{</span> <span class="c-key">"es"</span>: <span class="c-str">"Native"</span>, <span class="c-key">"en"</span>: <span class="c-str">"B1"</span> <span class="c-punct">}</span>,
+  <span class="c-key">"openToWork"</span>: <span class="c-bool">true</span>
+<span class="c-punct">}</span></code></pre>
+                    </div>
+
+                    <div class="dossier-panel" id="dossier-stack" role="tabpanel" hidden>
+<pre class="code-block"><code><span class="c-comment"># Arquitectura y herramientas clave</span>
+<span class="c-key">frontend</span>:
+  - <span class="c-str">HTML5 Semántico / CSS3 / Tailwind</span>
+  - <span class="c-str">JavaScript (ES2024+) / React / Next.js</span>
+  - <span class="c-str">Figma / UI-UX / Responsive Design</span>
+
+<span class="c-key">backend_and_data</span>:
+  - <span class="c-str">Java (Spring Boot) / Python (FastAPI)</span>
+  - <span class="c-str">Node.js / REST APIs</span>
+  - <span class="c-str">PostgreSQL / MySQL / MongoDB</span>
+
+<span class="c-key">quality_and_infra</span>:
+  - <span class="c-str">QA Functional Testing / Scrum / Kanban</span>
+  - <span class="c-str">Cisco Networking &amp; Cybersecurity</span>
+  - <span class="c-str">Git / Linux / Docker / IoT</span></code></pre>
+                    </div>
+
+                    <div class="dossier-panel" id="dossier-hire" role="tabpanel" hidden>
+<pre class="code-block"><code><span class="c-comment"># Verificación rápida para reclutadores</span>
+<span class="c-prompt">$</span> <span class="c-cmd">check-candidate --name "Andrés Sarria"</span>
+
+<span class="c-ok">✓</span> Disponibilidad: <span class="c-str">Inmediata (Tiempo completo / Práctica)</span>
+<span class="c-ok">✓</span> Modalidad:      <span class="c-str">Remoto · Híbrido · Presencial</span>
+<span class="c-ok">✓</span> Certificaciones:<span class="c-str"> Cisco Ciberseguridad &amp; Redes</span>
+<span class="c-ok">✓</span> Inglés:         <span class="c-str">B1 (Lectura y escritura técnica)</span>
+<span class="c-ok">✓</span> Contacto:       <span class="c-str">andressarriasabogal@gmail.com</span>
+<span class="c-ok">✓</span> Teléfono:       <span class="c-str">+57 318 575 3889</span>
+
+<span class="c-prompt">$</span> <span class="c-cmd">status</span> <span class="c-val">READY_TO_CONTRIBUTE</span><span class="caret"></span></code></pre>
+                    </div>
+                </div>
+
+                <div class="dossier-footer">
+                    <span class="mono-meta"><i class="fas fa-shield-halved" aria-hidden="true"></i> Cisco Certified Foundations</span>
+                    <span class="mono-meta"><i class="fas fa-location-dot" aria-hidden="true"></i> UTC-5 · Cali, CO</span>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Executive Proof Bar (100% Verified CV Facts) -->
+        <div class="container">
+            <div class="proof-strip" aria-label="Resumen de credenciales verificables">
+                <div class="proof-item">
+                    <span class="proof-value">10° Sem.</span>
+                    <span class="proof-label" data-i18n="proof.degree">Ingeniería de Sistemas · Univ. Santiago de Cali</span>
+                </div>
+                <div class="proof-item">
+                    <span class="proof-value">Cisco ×2</span>
+                    <span class="proof-label" data-i18n="proof.certs">Certificaciones en Ciberseguridad &amp; Redes</span>
+                </div>
+                <div class="proof-item">
+                    <span class="proof-value">QA &amp; Ágil</span>
+                    <span class="proof-label" data-i18n="proof.agile">Experiencia como Tester · Scrum &amp; Kanban</span>
+                </div>
+                <div class="proof-item">
+                    <span class="proof-value">Inglés B1</span>
+                    <span class="proof-label" data-i18n="proof.lang">Lectura y escritura técnica profesional</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         01 · ABOUT & VALUE PROPOSITION
+    ════════════════════════════════════════════ -->
+    <section id="about" class="section section-alt">
+        <div class="container">
+            <div class="section-head" data-reveal>
+                <span class="section-kicker">01 · <span data-i18n="about.kicker">PERFIL PROFESIONAL</span></span>
+                <h2 class="section-title" data-i18n="about.title">Visión de ingeniería aplicada al producto web.</h2>
+                <p class="section-subtitle" data-i18n="about.subtitle">
+                    No solo escribo código que compila: entiendo cómo interactúan la interfaz, los datos, la red, la seguridad y la calidad del software en producción.
                 </p>
             </div>
 
-            <div class="about-tags">
-                <span class="tag">Frontend Development</span>
-                <span class="tag">Backend Development</span>
-                <span class="tag">REST APIs</span>
-                <span class="tag">Bases de Datos</span>
-                <span class="tag">UI / UX</span>
-                <span class="tag">Responsive Design</span>
-                <span class="tag">Web Security</span>
-                <span class="tag">Clean Code</span>
-            </div>
+            <div class="about-layout">
+                <!-- Left: Executive Portrait & Recruiter Snapshot -->
+                <div class="about-sidebar" data-reveal>
+                    <div class="portrait-card">
+                        <div class="portrait-media">
+                            <img src="assets/img/fotohdv.jpeg" alt="Retrato profesional de Andrés Felipe Sarria Sabogal" width="420" height="520" loading="lazy">
+                            <div class="portrait-vignette" aria-hidden="true"></div>
+                        </div>
+                        <div class="portrait-caption">
+                            <div>
+                                <h3>Andrés Felipe Sarria</h3>
+                                <p data-i18n="about.roleCard">Ingeniería de Sistemas · 10° Semestre</p>
+                            </div>
+                            <span class="verified-chip" title="Perfil verificado según Hoja de Vida">
+                                <i class="fas fa-check" aria-hidden="true"></i> USC
+                            </span>
+                        </div>
+                    </div>
 
-            <div class="about-certs">
-                <div class="cert-item">
-                    <i class="fas fa-laptop-code"></i>
-                    <div>
-                        <strong>Full Stack Development</strong>
-                        <span>Frontend, Backend & Bases de datos</span>
+                    <div class="quick-facts-card">
+                        <h3 class="card-mini-title" data-i18n="about.factsTitle">Resumen para reclutadores</h3>
+                        <ul class="facts-list">
+                            <li>
+                                <span class="fact-k" data-i18n="about.factRoleK">Roles objetivo</span>
+                                <span class="fact-v" data-i18n="about.factRoleV">Full Stack · Frontend · Backend · QA</span>
+                            </li>
+                            <li>
+                                <span class="fact-k" data-i18n="about.factModalityK">Modalidad</span>
+                                <span class="fact-v" data-i18n="about.factModalityV">Remoto · Híbrido · Presencial</span>
+                            </li>
+                            <li>
+                                <span class="fact-k" data-i18n="about.factLocationK">Ubicación</span>
+                                <span class="fact-v">Santiago de Cali, Colombia</span>
+                            </li>
+                            <li>
+                                <span class="fact-k" data-i18n="about.factLangK">Idiomas</span>
+                                <span class="fact-v" data-i18n="about.factLangV">Español (Nativo) · Inglés (B1)</span>
+                            </li>
+                            <li>
+                                <span class="fact-k" data-i18n="about.factStatusK">Disponibilidad</span>
+                                <span class="fact-v status-text"><span class="status-dot-sm"></span> <span data-i18n="about.factStatusV">Inmediata</span></span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <div class="cert-item">
-                    <i class="fas fa-paint-brush"></i>
-                    <div>
-                        <strong>UI / UX & Diseño Web</strong>
-                        <span>Interfaces modernas y responsivas</span>
-                    </div>
-                </div>
-                <div class="cert-item">
-                    <i class="fas fa-shield-alt"></i>
-                    <div>
-                        <strong>Web Security</strong>
-                        <span>Buenas prácticas OWASP</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- SKILLS -->
-<section id="skills">
-    <div class="section-label" data-reveal>
-        <span class="font-mono">02</span>
-        <span class="label-line"></span>
-        <span>STACK TECNOLÓGICO</span>
-    </div>
+                <!-- Right: Narrative & 4 Engineering Pillars -->
+                <div class="about-main">
+                    <div class="about-narrative" data-reveal>
+                        <p data-i18n="about.p1">
+                            Soy <strong>Andrés Felipe Sarria Sabogal</strong>, estudiante de <strong>décimo semestre de Ingeniería de Sistemas</strong> en la <strong>Universidad Santiago de Cali</strong>, con formación integral orientada al desarrollo de software y enfoque especializado en <strong>desarrollo web</strong>.
+                        </p>
+                        <p data-i18n="about.p2">
+                            Cuento con experiencia práctica construyendo aplicaciones e interfaces funcionales, modernas y centradas en la experiencia del usuario, respaldada por conocimientos transversales en <strong>bases de datos relacionales y no relacionales</strong>, <strong>redes de computadores y redes inalámbricas</strong>, <strong>ciberseguridad y seguridad de redes</strong>, <strong>sistemas operativos</strong> e <strong>Internet de las Cosas (IoT)</strong>.
+                        </p>
+                        <p data-i18n="about.p3">
+                            He integrado equipos universitarios de TI desempeñando el rol de <strong>QA / Tester</strong> bajo metodologías ágiles <strong>Scrum y Kanban</strong>, fortaleciendo mi criterio analítico, comunicación efectiva y capacidad para integrarme rápidamente a equipos multidisciplinarios orientados a resultados de negocio.
+                        </p>
+                    </div>
 
-    <div class="skills-header" data-reveal>
-        <h2 class="section-title">
-            Stack que domino<br>
-            <em class="title-italic">de arriba a abajo.</em>
-        </h2>
-    </div>
+                    <div class="pillars-grid" data-reveal>
+                        <article class="pillar-card">
+                            <div class="pillar-icon"><i class="fas fa-layer-group" aria-hidden="true"></i></div>
+                            <h3 data-i18n="about.pillar1Title">Desarrollo Web End-to-End</h3>
+                            <p data-i18n="about.pillar1Desc">Interfaces limpias, responsivas y mantenibles conectadas con lógica de servidor robusta y APIs bien estructuradas.</p>
+                        </article>
 
-    <div class="skills-tabs" data-reveal>
-        <button class="skill-tab active" data-tab="frontend">Frontend</button>
-        <button class="skill-tab" data-tab="backend">Backend</button>
-        <button class="skill-tab" data-tab="security">Diseño & UI</button>
-        <button class="skill-tab" data-tab="tools">Herramientas</button>
-    </div>
+                        <article class="pillar-card">
+                            <div class="pillar-icon"><i class="fas fa-vial-circle-check" aria-hidden="true"></i></div>
+                            <h3 data-i18n="about.pillar2Title">Calidad (QA) &amp; Metodologías Ágiles</h3>
+                            <p data-i18n="about.pillar2Desc">Experiencia como Tester en equipos de TI aplicando Scrum y Kanban: prevención de fallos, validación rigurosa y entregas iterativas.</p>
+                        </article>
 
-    <div class="skills-panels">
-        <!-- Frontend -->
-        <div class="skills-panel active" id="tab-frontend">
-            <div class="skill-cards">
-                <div class="skill-card" data-level="90">
-                    <div class="skill-icon"><i class="fab fa-html5"></i></div>
-                    <div class="skill-info">
-                        <span class="skill-name">HTML5</span>
-                        <div class="skill-bar"><div class="skill-fill" data-w="90"></div></div>
+                        <article class="pillar-card">
+                            <div class="pillar-icon"><i class="fas fa-database" aria-hidden="true"></i></div>
+                            <h3 data-i18n="about.pillar3Title">Datos, Sistemas &amp; IoT</h3>
+                            <p data-i18n="about.pillar3Desc">Comprensión transversal de bases de datos SQL/NoSQL, sistemas operativos e Internet de las Cosas para aportar valor en cada capa.</p>
+                        </article>
+
+                        <article class="pillar-card">
+                            <div class="pillar-icon"><i class="fas fa-shield-halved" aria-hidden="true"></i></div>
+                            <h3 data-i18n="about.pillar4Title">Redes &amp; Ciberseguridad</h3>
+                            <p data-i18n="about.pillar4Desc">Formación certificada por Cisco en redes y ciberseguridad para diseñar software consciente de riesgos y buenas prácticas de seguridad.</p>
+                        </article>
                     </div>
-                    <span class="skill-pct">90%</span>
-                </div>
-                <div class="skill-card" data-level="85">
-                    <div class="skill-icon"><i class="fab fa-css3-alt"></i></div>
-                    <div class="skill-info">
-                        <span class="skill-name">CSS3 + Tailwind</span>
-                        <div class="skill-bar"><div class="skill-fill" data-w="85"></div></div>
-                    </div>
-                    <span class="skill-pct">85%</span>
-                </div>
-                <div class="skill-card" data-level="85">
-                    <div class="skill-icon"><i class="fab fa-js"></i></div>
-                    <div class="skill-info">
-                        <span class="skill-name">JavaScript ES2024</span>
-                        <div class="skill-bar"><div class="skill-fill" data-w="85"></div></div>
-                    </div>
-                    <span class="skill-pct">85%</span>
-                </div>
-                <div class="skill-card" data-level="70">
-                    <div class="skill-icon"><i class="fab fa-react"></i></div>
-                    <div class="skill-info">
-                        <span class="skill-name">React / Next.js</span>
-                        <div class="skill-bar"><div class="skill-fill" data-w="70"></div></div>
-                    </div>
-                    <span class="skill-pct">70%</span>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Backend -->
-        <div class="skills-panel" id="tab-backend">
-            <div class="skill-cards">
-                <div class="skill-card" data-level="80">
-                    <div class="skill-icon"><i class="fab fa-java"></i></div>
-                    <div class="skill-info">
-                        <span class="skill-name">Java / Spring Boot</span>
-                        <div class="skill-bar"><div class="skill-fill" data-w="80"></div></div>
-                    </div>
-                    <span class="skill-pct">80%</span>
+    <!-- ═══════════════════════════════════════════
+         02 · TECHNICAL CAPABILITIES MATRIX
+    ════════════════════════════════════════════ -->
+    <section id="skills" class="section">
+        <div class="container">
+            <div class="section-head section-head-row" data-reveal>
+                <div>
+                    <span class="section-kicker">02 · <span data-i18n="skills.kicker">ARQUITECTURA DE CAPACIDADES</span></span>
+                    <h2 class="section-title" data-i18n="skills.title">Stack técnico y dominios de ingeniería.</h2>
+                    <p class="section-subtitle" data-i18n="skills.subtitle">
+                        Organizado por capas reales de software — sin porcentajes arbitrarios, enfocado en cómo aporto valor en un equipo de producción.
+                    </p>
                 </div>
-                <div class="skill-card" data-level="75">
-                    <div class="skill-icon"><i class="fab fa-python"></i></div>
-                    <div class="skill-info">
-                        <span class="skill-name">Python / FastAPI</span>
-                        <div class="skill-bar"><div class="skill-fill" data-w="75"></div></div>
-                    </div>
-                    <span class="skill-pct">75%</span>
-                </div>
-                <div class="skill-card" data-level="80">
-                    <div class="skill-icon"><i class="fas fa-database"></i></div>
-                    <div class="skill-info">
-                        <span class="skill-name">SQL / NoSQL</span>
-                        <div class="skill-bar"><div class="skill-fill" data-w="80"></div></div>
-                    </div>
-                    <span class="skill-pct">80%</span>
-                </div>
-                <div class="skill-card" data-level="65">
-                    <div class="skill-icon"><i class="fab fa-node-js"></i></div>
-                    <div class="skill-info">
-                        <span class="skill-name">Node.js / Express</span>
-                        <div class="skill-bar"><div class="skill-fill" data-w="65"></div></div>
-                    </div>
-                    <span class="skill-pct">65%</span>
+
+                <div class="filter-bar" role="tablist" aria-label="Filtrar capacidades por dominio">
+                    <button type="button" class="filter-btn active" data-skill-filter="all" role="tab" aria-selected="true" data-i18n="skills.tabAll">Todas</button>
+                    <button type="button" class="filter-btn" data-skill-filter="frontend" role="tab" aria-selected="false">Frontend &amp; UI</button>
+                    <button type="button" class="filter-btn" data-skill-filter="backend" role="tab" aria-selected="false">Backend &amp; Datos</button>
+                    <button type="button" class="filter-btn" data-skill-filter="qa" role="tab" aria-selected="false">QA &amp; Ágil</button>
+                    <button type="button" class="filter-btn" data-skill-filter="infra" role="tab" aria-selected="false" data-i18n="skills.tabInfra">Redes &amp; Seguridad</button>
                 </div>
             </div>
-        </div>
 
-        <!-- Diseño & UI -->
-        <div class="skills-panel" id="tab-security">
-            <div class="skill-cards">
-                <div class="skill-card" data-level="85">
-                    <div class="skill-icon"><i class="fas fa-pencil-ruler"></i></div>
-                    <div class="skill-info">
-                        <span class="skill-name">UI / UX Design</span>
-                        <div class="skill-bar"><div class="skill-fill" data-w="85"></div></div>
+            <div class="capabilities-grid" id="capabilities-grid">
+                <!-- Card 1: Frontend -->
+                <article class="cap-card" data-category="frontend" data-reveal>
+                    <div class="cap-top">
+                        <span class="cap-layer">LAYER 01 · CLIENT</span>
+                        <span class="cap-badge" data-i18n="skills.badgeCore">Enfoque Principal</span>
                     </div>
-                    <span class="skill-pct">85%</span>
-                </div>
-                <div class="skill-card" data-level="80">
-                    <div class="skill-icon"><i class="fab fa-figma"></i></div>
-                    <div class="skill-info">
-                        <span class="skill-name">Figma / Prototipado</span>
-                        <div class="skill-bar"><div class="skill-fill" data-w="80"></div></div>
+                    <div class="cap-header">
+                        <div class="cap-icon"><i class="fas fa-code" aria-hidden="true"></i></div>
+                        <h3 data-i18n="skills.c1Title">Desarrollo Frontend &amp; UI/UX</h3>
                     </div>
-                    <span class="skill-pct">80%</span>
-                </div>
-                <div class="skill-card" data-level="75">
-                    <div class="skill-icon"><i class="fas fa-mobile-alt"></i></div>
-                    <div class="skill-info">
-                        <span class="skill-name">Responsive Design</span>
-                        <div class="skill-bar"><div class="skill-fill" data-w="75"></div></div>
+                    <p class="cap-desc" data-i18n="skills.c1Desc">
+                        Construcción de interfaces modernas, semánticas, accesibles y responsivas priorizando rendimiento y experiencia de usuario.
+                    </p>
+                    <div class="tech-tags">
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>Tailwind CSS</span>
+                        <span>JavaScript ES2024</span>
+                        <span>React</span>
+                        <span>Next.js</span>
+                        <span>Figma</span>
+                        <span>Responsive UI</span>
                     </div>
-                    <span class="skill-pct">75%</span>
-                </div>
-                <div class="skill-card" data-level="65">
-                    <div class="skill-icon"><i class="fas fa-shield-alt"></i></div>
-                    <div class="skill-info">
-                        <span class="skill-name">Web Security (OWASP)</span>
-                        <div class="skill-bar"><div class="skill-fill" data-w="65"></div></div>
+                </article>
+
+                <!-- Card 2: Backend & Databases -->
+                <article class="cap-card" data-category="backend" data-reveal>
+                    <div class="cap-top">
+                        <span class="cap-layer">LAYER 02 · SERVER &amp; DATA</span>
+                        <span class="cap-badge" data-i18n="skills.badgeCore">Enfoque Principal</span>
                     </div>
-                    <span class="skill-pct">65%</span>
-                </div>
+                    <div class="cap-header">
+                        <div class="cap-icon"><i class="fas fa-server" aria-hidden="true"></i></div>
+                        <h3 data-i18n="skills.c2Title">Backend, APIs &amp; Bases de Datos</h3>
+                    </div>
+                    <p class="cap-desc" data-i18n="skills.c2Desc">
+                        Diseño de servicios web, integración de APIs REST y modelado eficiente en bases de datos relacionales y no relacionales.
+                    </p>
+                    <div class="tech-tags">
+                        <span>Java</span>
+                        <span>Spring Boot</span>
+                        <span>Python</span>
+                        <span>FastAPI</span>
+                        <span>Node.js</span>
+                        <span>REST APIs</span>
+                        <span>PostgreSQL / MySQL</span>
+                        <span>MongoDB (NoSQL)</span>
+                    </div>
+                </article>
+
+                <!-- Card 3: QA & Agile -->
+                <article class="cap-card" data-category="qa" data-reveal>
+                    <div class="cap-top">
+                        <span class="cap-layer">LAYER 03 · QUALITY &amp; DELIVERY</span>
+                        <span class="cap-badge cap-badge-emerald" data-i18n="skills.badgeExp">Experiencia Práctica</span>
+                    </div>
+                    <div class="cap-header">
+                        <div class="cap-icon"><i class="fas fa-clipboard-check" aria-hidden="true"></i></div>
+                        <h3 data-i18n="skills.c3Title">Aseguramiento de Calidad (QA) &amp; Ágil</h3>
+                    </div>
+                    <p class="cap-desc" data-i18n="skills.c3Desc">
+                        Experiencia real en rol de Tester en equipos de TI, aplicando pruebas funcionales, documentación de bugs y gestión ágil del flujo de entrega.
+                    </p>
+                    <div class="tech-tags">
+                        <span>QA / Testing Funcional</span>
+                        <span>Scrum</span>
+                        <span>Kanban</span>
+                        <span>Gestión de Defectos</span>
+                        <span>Git &amp; GitHub</span>
+                        <span>Clean Code</span>
+                        <span>Trabajo Multidisciplinario</span>
+                    </div>
+                </article>
+
+                <!-- Card 4: Networks, Security, OS & IoT -->
+                <article class="cap-card" data-category="infra" data-reveal>
+                    <div class="cap-top">
+                        <span class="cap-layer">LAYER 04 · SYSTEMS &amp; SECURITY</span>
+                        <span class="cap-badge cap-badge-indigo" data-i18n="skills.badgeCisco">Respaldo Cisco</span>
+                    </div>
+                    <div class="cap-header">
+                        <div class="cap-icon"><i class="fas fa-network-wired" aria-hidden="true"></i></div>
+                        <h3 data-i18n="skills.c4Title">Redes, Ciberseguridad, SO &amp; IoT</h3>
+                    </div>
+                    <p class="cap-desc" data-i18n="skills.c4Desc">
+                        Base transversal de Ingeniería de Sistemas en conectividad, seguridad de redes, administración de sistemas operativos e IoT.
+                    </p>
+                    <div class="tech-tags">
+                        <span>Ciberseguridad</span>
+                        <span>Seguridad de Redes</span>
+                        <span>Redes Inalámbricas</span>
+                        <span>Buenas Prácticas OWASP</span>
+                        <span>Sistemas Operativos</span>
+                        <span>Linux &amp; Bash</span>
+                        <span>Docker</span>
+                        <span>IoT</span>
+                    </div>
+                </article>
             </div>
         </div>
+    </section>
 
-        <!-- Herramientas -->
-        <div class="skills-panel" id="tab-tools">
-            <div class="skill-cards">
-                <div class="skill-card" data-level="85">
-                    <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
-                    <div class="skill-info">
-                        <span class="skill-name">Git / GitHub</span>
-                        <div class="skill-bar"><div class="skill-fill" data-w="85"></div></div>
-                    </div>
-                    <span class="skill-pct">85%</span>
+    <!-- ═══════════════════════════════════════════
+         03 · PROJECTS & LIVE GITHUB EXPLORER
+    ════════════════════════════════════════════ -->
+    <section id="projects" class="section section-alt">
+        <div class="container">
+            <div class="section-head section-head-row" data-reveal>
+                <div>
+                    <span class="section-kicker">03 · <span data-i18n="projects.kicker">PROYECTOS &amp; CÓDIGO ABIERTO</span></span>
+                    <h2 class="section-title" data-i18n="projects.title">Repositorios en vivo desde GitHub.</h2>
+                    <p class="section-subtitle" data-i18n="projects.subtitle">
+                        Sincronizados automáticamente con mi cuenta <code>@Andresfss09</code>. Filtra por lenguaje o busca proyectos específicos para inspeccionar mi código.
+                    </p>
                 </div>
-                <div class="skill-card" data-level="70">
-                    <div class="skill-icon"><i class="fab fa-docker"></i></div>
-                    <div class="skill-info">
-                        <span class="skill-name">Docker / Linux</span>
-                        <div class="skill-bar"><div class="skill-fill" data-w="70"></div></div>
-                    </div>
-                    <span class="skill-pct">70%</span>
-                </div>
-                <div class="skill-card" data-level="75">
-                    <div class="skill-icon"><i class="fas fa-terminal"></i></div>
-                    <div class="skill-info">
-                        <span class="skill-name">Bash / Scripting</span>
-                        <div class="skill-bar"><div class="skill-fill" data-w="75"></div></div>
-                    </div>
-                    <span class="skill-pct">75%</span>
-                </div>
-                <div class="skill-card" data-level="65">
-                    <div class="skill-icon"><i class="fab fa-aws"></i></div>
-                    <div class="skill-info">
-                        <span class="skill-name">AWS / Cloud</span>
-                        <div class="skill-bar"><div class="skill-fill" data-w="65"></div></div>
-                    </div>
-                    <span class="skill-pct">65%</span>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="marquee-wrap" data-reveal>
-        <div class="marquee-track">
-            <div class="marquee-item"><i class="fab fa-python"></i> Python</div>
-            <div class="marquee-item"><i class="fab fa-java"></i> Java</div>
-            <div class="marquee-item"><i class="fab fa-js"></i> JavaScript</div>
-            <div class="marquee-item"><i class="fab fa-react"></i> React</div>
-            <div class="marquee-item"><i class="fas fa-database"></i> PostgreSQL</div>
-            <div class="marquee-item"><i class="fab fa-docker"></i> Docker</div>
-            <div class="marquee-item"><i class="fab fa-figma"></i> Figma</div>
-            <div class="marquee-item"><i class="fas fa-database"></i> MongoDB</div>
-            <div class="marquee-item"><i class="fab fa-git-alt"></i> Git</div>
-            <div class="marquee-item"><i class="fab fa-linux"></i> Linux</div>
-            <div class="marquee-item"><i class="fab fa-python"></i> Python</div>
-            <div class="marquee-item"><i class="fab fa-java"></i> Java</div>
-            <div class="marquee-item"><i class="fab fa-js"></i> JavaScript</div>
-            <div class="marquee-item"><i class="fab fa-react"></i> React</div>
-            <div class="marquee-item"><i class="fas fa-database"></i> PostgreSQL</div>
-            <div class="marquee-item"><i class="fab fa-docker"></i> Docker</div>
-            <div class="marquee-item"><i class="fab fa-figma"></i> Figma</div>
-            <div class="marquee-item"><i class="fas fa-database"></i> MongoDB</div>
-            <div class="marquee-item"><i class="fab fa-git-alt"></i> Git</div>
-            <div class="marquee-item"><i class="fab fa-linux"></i> Linux</div>
-        </div>
-    </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-    <div class="section-label" data-reveal>
-        <span class="font-mono">03</span>
-        <span class="label-line"></span>
-        <span>PROYECTOS</span>
-    </div>
-
-    <div class="projects-header" data-reveal>
-        <h2 class="section-title">
-            Código que<br>
-            <em class="title-italic">habla por sí solo.</em>
-        </h2>
-        <a href="https://github.com/Andresfss09" target="_blank" class="btn-ghost btn-sm">
-            <i class="fab fa-github"></i> Ver GitHub
-        </a>
-    </div>
-
-    <div id="repos-grid" class="repos-grid">
-        <div class="repos-loading">
-            <div class="loading-spinner"></div>
-            <span class="font-mono">Cargando repositorios...</span>
-        </div>
-    </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-    <div class="section-label" data-reveal>
-        <span class="font-mono">04</span>
-        <span class="label-line"></span>
-        <span>CONTACTO</span>
-    </div>
-
-    <div class="contact-wrap">
-        <div class="contact-text" data-reveal>
-            <h2 class="section-title contact-title">
-                Hagamos algo<br>
-                <em class="title-italic">increíble juntos.</em>
-            </h2>
-            <p class="contact-desc">
-                ¿Tienes un proyecto, una oportunidad laboral o simplemente quieres
-                hablar sobre tecnología? Mi inbox siempre está abierto.
-            </p>
-
-            <div class="contact-channels">
-                <a href="mailto:andressarriasabogal@gmail.com" class="channel-item" data-cursor="Email">
-                    <div class="channel-icon"><i class="fas fa-envelope"></i></div>
-                    <div class="channel-info">
-                        <span class="channel-label font-mono">email</span>
-                        <span class="channel-value">andressarriasabogal@gmail.com</span>
-                    </div>
-                    <i class="fas fa-arrow-right channel-arrow"></i>
-                </a>
-                <a href="https://github.com/Andresfss09" target="_blank" class="channel-item" data-cursor="GitHub">
-                    <div class="channel-icon"><i class="fab fa-github"></i></div>
-                    <div class="channel-info">
-                        <span class="channel-label font-mono">github</span>
-                        <span class="channel-value">@Andresfss09</span>
-                    </div>
-                    <i class="fas fa-arrow-right channel-arrow"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/andres-felipe-sarria-sabogal-7839a4302/" target="_blank" class="channel-item" data-cursor="LinkedIn">
-                    <div class="channel-icon"><i class="fab fa-linkedin-in"></i></div>
-                    <div class="channel-info">
-                        <span class="channel-label font-mono">linkedin</span>
-                        <span class="channel-value">andres-felipe-sarria-sabogal-7839a4302</span>
-                    </div>
-                    <i class="fas fa-arrow-right channel-arrow"></i>
+                <a href="https://github.com/Andresfss09" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    <span data-i18n="projects.viewGithub">Explorar GitHub</span>
+                    <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
                 </a>
             </div>
-        </div>
 
-        <div class="contact-form-wrap" data-reveal>
-            <form id="contact-form" class="contact-form" novalidate>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label class="form-label font-mono">nombre</label>
-                        <input type="text" class="form-input" placeholder="Tu nombre" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label font-mono">email</label>
-                        <input type="email" class="form-input" placeholder="tu@email.com" required>
-                    </div>
+            <!-- Live GitHub Controls & Telemetry -->
+            <div class="github-toolbar" data-reveal>
+                <div class="github-filters" id="repo-lang-filters" role="group" aria-label="Filtrar repositorios por lenguaje">
+                    <button type="button" class="filter-chip active" data-lang="all" data-i18n="projects.all">Todos</button>
                 </div>
-                <div class="form-group">
-                    <label class="form-label font-mono">asunto</label>
-                    <input type="text" class="form-input" placeholder="¿De qué trata?" required>
+
+                <div class="github-controls-right">
+                    <label class="search-input-wrap" aria-label="Buscar repositorios">
+                        <i class="fas fa-magnifying-glass" aria-hidden="true"></i>
+                        <input type="search" id="repo-search" placeholder="Buscar repositorio..." autocomplete="off">
+                    </label>
+                    <select id="repo-sort" class="sort-select" aria-label="Ordenar repositorios">
+                        <option value="updated" data-i18n="projects.sortRecent">Más recientes</option>
+                        <option value="stars" data-i18n="projects.sortStars">Más destacados</option>
+                        <option value="name" data-i18n="projects.sortName">Alfabético</option>
+                    </select>
                 </div>
-                <div class="form-group">
-                    <label class="form-label font-mono">mensaje</label>
-                    <textarea class="form-input form-textarea" rows="5" placeholder="Cuéntame sobre tu proyecto..." required></textarea>
-                </div>
-                <button type="submit" class="btn-primary btn-full">
-                    <span>Enviar mensaje</span>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8l10-6-3 6 3 6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
-                </button>
-            </form>
+            </div>
+
+            <div class="github-telemetry" id="github-telemetry" hidden>
+                <span id="telemetry-count"></span>
+                <span class="telemetry-sep" aria-hidden="true">·</span>
+                <span id="telemetry-sync"></span>
+            </div>
+
+            <!-- Dynamic Grid -->
+            <div id="repos-grid" class="repos-grid" aria-live="polite">
+                <!-- Skeleton cards while loading -->
+                <div class="repo-skeleton" aria-hidden="true"></div>
+                <div class="repo-skeleton" aria-hidden="true"></div>
+                <div class="repo-skeleton" aria-hidden="true"></div>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         04 · TRAJECTORY, EDUCATION & CERTIFICATIONS
+    ════════════════════════════════════════════ -->
+    <section id="trajectory" class="section">
+        <div class="container">
+            <div class="section-head" data-reveal>
+                <span class="section-kicker">04 · <span data-i18n="traj.kicker">TRAYECTORIA &amp; CREDENCIALES</span></span>
+                <h2 class="section-title" data-i18n="traj.title">Formación académica, experiencia en equipos y certificaciones.</h2>
+                <p class="section-subtitle" data-i18n="traj.subtitle">
+                    Información 100% alineada y verificable con mi Hoja de Vida oficial.
+                </p>
+            </div>
+
+            <div class="trajectory-grid">
+                <!-- Column 1: Experience & Education Timeline -->
+                <div class="trajectory-col" data-reveal>
+                    <h3 class="col-heading">
+                        <i class="fas fa-briefcase" aria-hidden="true"></i>
+                        <span data-i18n="traj.expEduTitle">Experiencia en TI &amp; Formación</span>
+                    </h3>
+
+                    <div class="timeline">
+                        <article class="timeline-item">
+                            <span class="timeline-dot timeline-dot-active" aria-hidden="true"></span>
+                            <div class="timeline-meta">
+                                <span class="timeline-date" data-i18n="traj.item1Date">Equipos TI Universitarios</span>
+                                <span class="timeline-tag">QA · Scrum · Kanban</span>
+                            </div>
+                            <h4 data-i18n="traj.item1Title">QA Tester &amp; Colaborador en Equipos de TI</h4>
+                            <p class="timeline-org">Universidad Santiago de Cali</p>
+                            <p class="timeline-desc" data-i18n="traj.item1Desc">
+                                Participación activa en proyectos de desarrollo desempeñando el rol de tester bajo metodologías ágiles Scrum y Kanban. Validación funcional, detección temprana de errores, comunicación efectiva con desarrolladores y adaptación rápida a diferentes tecnologías.
+                            </p>
+                        </article>
+
+                        <article class="timeline-item">
+                            <span class="timeline-dot" aria-hidden="true"></span>
+                            <div class="timeline-meta">
+                                <span class="timeline-date">Feb 2022 – Actualidad</span>
+                                <span class="timeline-tag" data-i18n="traj.item2Tag">10° Semestre</span>
+                            </div>
+                            <h4 data-i18n="traj.item2Title">Ingeniería de Sistemas</h4>
+                            <p class="timeline-org">Universidad Santiago de Cali · Santiago de Cali, Colombia</p>
+                            <p class="timeline-desc" data-i18n="traj.item2Desc">
+                                Formación profesional integral en ingeniería de software, desarrollo web moderno, bases de datos SQL y NoSQL, redes de computadores, seguridad informática, redes inalámbricas, sistemas operativos e Internet de las Cosas (IoT).
+                            </p>
+                        </article>
+
+                        <article class="timeline-item">
+                            <span class="timeline-dot" aria-hidden="true"></span>
+                            <div class="timeline-meta">
+                                <span class="timeline-date">Feb 2015 – Nov 2020</span>
+                                <span class="timeline-tag" data-i18n="traj.item3Tag">Graduado</span>
+                            </div>
+                            <h4 data-i18n="traj.item3Title">Bachiller Académico</h4>
+                            <p class="timeline-org">Institución Educativa Santa Fe</p>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Column 2: Certifications, Languages & References -->
+                <div class="trajectory-col" data-reveal>
+                    <h3 class="col-heading">
+                        <i class="fas fa-award" aria-hidden="true"></i>
+                        <span data-i18n="traj.certsTitle">Certificaciones &amp; Idiomas</span>
+                    </h3>
+
+                    <div class="credentials-stack">
+                        <article class="credential-card">
+                            <div class="cred-icon"><i class="fas fa-shield-halved" aria-hidden="true"></i></div>
+                            <div class="cred-body">
+                                <div class="cred-head">
+                                    <h4 data-i18n="traj.cert1Title">Introducción a la Ciberseguridad</h4>
+                                    <span class="cred-date">Feb – Mar 2026</span>
+                                </div>
+                                <p class="cred-issuer">Cisco Networking Academy · <span data-i18n="traj.cert1Meta">Graduado · 6 horas</span></p>
+                                <p class="cred-desc" data-i18n="traj.cert1Desc">
+                                    Principios de seguridad de la información, identificación de amenazas, protección de datos y vulnerabilidades comunes en sistemas y redes.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="credential-card">
+                            <div class="cred-icon"><i class="fas fa-network-wired" aria-hidden="true"></i></div>
+                            <div class="cred-body">
+                                <div class="cred-head">
+                                    <h4 data-i18n="traj.cert2Title">Exploración de Redes</h4>
+                                    <span class="cred-date">Oct 2024</span>
+                                </div>
+                                <p class="cred-issuer">Cisco Networking Academy · <span data-i18n="traj.cert2Meta">Graduado · 4 semanas</span></p>
+                                <p class="cred-desc" data-i18n="traj.cert2Desc">
+                                    Arquitectura de redes de computadores, protocolos de comunicación, conectividad inalámbrica y fundamentos de seguridad de red.
+                                </p>
+                            </div>
+                        </article>
+
+                        <!-- Languages Card -->
+                        <article class="credential-card lang-card">
+                            <div class="cred-icon"><i class="fas fa-globe" aria-hidden="true"></i></div>
+                            <div class="cred-body">
+                                <div class="cred-head">
+                                    <h4 data-i18n="traj.langTitle">Competencia en Idiomas</h4>
+                                </div>
+                                <div class="lang-rows">
+                                    <div class="lang-row">
+                                        <div>
+                                            <strong data-i18n="traj.spanish">Español</strong>
+                                            <span data-i18n="traj.spanishDesc">Comunicación técnica y ejecutiva nativa</span>
+                                        </div>
+                                        <span class="lang-pill lang-pill-native" data-i18n="traj.native">Nativo</span>
+                                    </div>
+                                    <div class="lang-row">
+                                        <div>
+                                            <strong data-i18n="traj.english">Inglés (English)</strong>
+                                            <span data-i18n="traj.englishDesc">Lectura y escritura: Bien · Habla y comprensión: Intermedio</span>
+                                        </div>
+                                        <span class="lang-pill">B1</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Professional Reference Notice -->
+                        <article class="credential-card ref-card">
+                            <div class="cred-icon"><i class="fas fa-user-check" aria-hidden="true"></i></div>
+                            <div class="cred-body">
+                                <div class="cred-head">
+                                    <h4 data-i18n="traj.refTitle">Referencia Profesional Verificable</h4>
+                                </div>
+                                <p class="cred-desc" data-i18n="traj.refDesc">
+                                    <strong>Nicolás Chávez Oliveros</strong> — Ingeniero de Sistemas. Datos de contacto disponibles en la Hoja de Vida descargable o bajo solicitud directa durante el proceso de selección.
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         05 · HIRING & CONTACT SECTION
+    ════════════════════════════════════════════ -->
+    <section id="contact" class="section section-alt">
+        <div class="container">
+            <div class="section-head" data-reveal>
+                <span class="section-kicker">05 · <span data-i18n="contact.kicker">CONTACTO &amp; CONTRATACIÓN</span></span>
+                <h2 class="section-title" data-i18n="contact.title">Listo para integrarme a tu equipo de ingeniería.</h2>
+                <p class="section-subtitle" data-i18n="contact.subtitle">
+                    ¿Buscas un desarrollador web o ingeniero de sistemas en último semestre con mentalidad analítica, enfoque en calidad y aprendizaje rápido? Conversemos.
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <!-- Left: Direct Channels & Hiring Highlights -->
+                <div class="contact-info" data-reveal>
+                    <div class="hiring-pitch-card">
+                        <h3 data-i18n="contact.whyTitle">¿Qué aporto desde el día uno?</h3>
+                        <ul class="check-list">
+                            <li><i class="fas fa-check" aria-hidden="true"></i> <span data-i18n="contact.why1">Desarrollo web limpio, estructurado y enfocado en experiencia de usuario.</span></li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> <span data-i18n="contact.why2">Criterio de QA y experiencia colaborativa con Scrum y Kanban.</span></li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> <span data-i18n="contact.why3">Visión integral de sistemas: bases de datos, redes, ciberseguridad e IoT.</span></li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> <span data-i18n="contact.why4">Proactividad, documentación clara y rápida adaptación a tu stack.</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="channel-list">
+                        <div class="channel-card">
+                            <a href="mailto:andressarriasabogal@gmail.com" class="channel-main">
+                                <div class="channel-icon"><i class="fas fa-envelope" aria-hidden="true"></i></div>
+                                <div>
+                                    <span class="channel-label">EMAIL DIRECTO</span>
+                                    <strong class="channel-value">andressarriasabogal@gmail.com</strong>
+                                </div>
+                            </a>
+                            <button type="button" class="copy-mini-btn" data-copy-email="andressarriasabogal@gmail.com" aria-label="Copiar correo electrónico" title="Copiar correo">
+                                <i class="far fa-copy" aria-hidden="true"></i>
+                            </button>
+                        </div>
+
+                        <a href="https://wa.me/573185753889?text=Hola%20Andr%C3%A9s%2C%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20agendar%20una%20entrevista." target="_blank" rel="noopener noreferrer" class="channel-card channel-link">
+                            <div class="channel-main">
+                                <div class="channel-icon channel-icon-emerald"><i class="fab fa-whatsapp" aria-hidden="true"></i></div>
+                                <div>
+                                    <span class="channel-label">WHATSAPP / TELÉFONO</span>
+                                    <strong class="channel-value">+57 318 575 3889</strong>
+                                </div>
+                            </div>
+                            <i class="fas fa-arrow-up-right-from-square channel-ext" aria-hidden="true"></i>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/andres-felipe-sarria-sabogal-7839a4302/" target="_blank" rel="noopener noreferrer" class="channel-card channel-link">
+                            <div class="channel-main">
+                                <div class="channel-icon"><i class="fab fa-linkedin-in" aria-hidden="true"></i></div>
+                                <div>
+                                    <span class="channel-label">LINKEDIN</span>
+                                    <strong class="channel-value">Andrés Felipe Sarria Sabogal</strong>
+                                </div>
+                            </div>
+                            <i class="fas fa-arrow-up-right-from-square channel-ext" aria-hidden="true"></i>
+                        </a>
+
+                        <a href="https://github.com/Andresfss09" target="_blank" rel="noopener noreferrer" class="channel-card channel-link">
+                            <div class="channel-main">
+                                <div class="channel-icon"><i class="fab fa-github" aria-hidden="true"></i></div>
+                                <div>
+                                    <span class="channel-label">GITHUB</span>
+                                    <strong class="channel-value">@Andresfss09</strong>
+                                </div>
+                            </div>
+                            <i class="fas fa-arrow-up-right-from-square channel-ext" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Smart Recruiter Contact Form -->
+                <div class="contact-form-card" data-reveal>
+                    <div class="form-card-head">
+                        <h3 data-i18n="contact.formTitle">Enviar propuesta o solicitud de entrevista</h3>
+                        <p data-i18n="contact.formHint">Al enviar se abrirá tu cliente de correo pre-llenado y podrás copiar el resumen con un clic.</p>
+                    </div>
+
+                    <form id="contact-form" class="contact-form" novalidate>
+                        <div class="form-row">
+                            <div class="field">
+                                <label for="cf-name" data-i18n="contact.labelName">Nombre / Empresa *</label>
+                                <input type="text" id="cf-name" name="name" placeholder="Ej. Laura Gómez · TechCorp" required autocomplete="name">
+                                <span class="field-error" aria-live="polite"></span>
+                            </div>
+                            <div class="field">
+                                <label for="cf-email" data-i18n="contact.labelEmail">Correo electrónico *</label>
+                                <input type="email" id="cf-email" name="email" placeholder="nombre@empresa.com" required autocomplete="email">
+                                <span class="field-error" aria-live="polite"></span>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="cf-type" data-i18n="contact.labelType">Tipo de oportunidad</label>
+                            <select id="cf-type" name="type">
+                                <option value="Vacante Desarrollador Web / Full Stack" data-i18n="contact.opt1">Vacante Desarrollador Web / Full Stack</option>
+                                <option value="Práctica Profesional / Pasantía TI" data-i18n="contact.opt2">Práctica Profesional / Pasantía TI</option>
+                                <option value="Rol QA / Testing" data-i18n="contact.opt3">Rol QA / Testing</option>
+                                <option value="Proyecto Freelance / Consultoría" data-i18n="contact.opt4">Proyecto Freelance / Consultoría</option>
+                                <option value="Otro asunto" data-i18n="contact.opt5">Otro asunto</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label for="cf-message" data-i18n="contact.labelMsg">Detalles de la oportunidad o mensaje *</label>
+                            <textarea id="cf-message" name="message" rows="5" placeholder="Cuéntame sobre el rol, stack del equipo o fecha ideal para conversar..." required></textarea>
+                            <span class="field-error" aria-live="polite"></span>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-lg btn-full">
+                                <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                                <span data-i18n="contact.submit">Preparar y enviar correo</span>
+                            </button>
+                        </div>
+
+                        <div id="form-result" class="form-result" hidden aria-live="polite">
+                            <div class="form-result-text">
+                                <i class="fas fa-circle-check" aria-hidden="true"></i>
+                                <span id="form-result-msg"></span>
+                            </div>
+                            <button type="button" id="copy-composed-btn" class="btn btn-secondary btn-sm">
+                                <i class="far fa-copy" aria-hidden="true"></i>
+                                <span data-i18n="contact.copyComposed">Copiar mensaje</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
 
 <!-- FOOTER -->
-<footer id="footer">
-    <div class="footer-inner">
+<footer class="site-footer">
+    <div class="container footer-inner">
         <div class="footer-brand">
-            <span class="logo-bracket">[</span><span class="logo-text">AS</span><span class="logo-bracket">]</span>
+            <span class="brand-mark brand-mark-sm" aria-hidden="true">AS</span>
+            <div>
+                <strong>Andrés Felipe Sarria Sabogal</strong>
+                <p data-i18n="footer.sub">Ingeniería de Sistemas · Santiago de Cali, Colombia</p>
+            </div>
         </div>
-        <p class="footer-copy font-mono">© 2026 Ingeniero Andrés Felipe Sarria Sabogal.</p>
-        <div class="footer-socials">
-            <a href="https://github.com/Andresfss09" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/andres-felipe-sarria-sabogal-7839a4302/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-            <a href="mailto:andressarriasabogal@gmail.com"><i class="fas fa-envelope"></i></a>
+
+        <div class="footer-meta">
+            <span>© <span id="footer-year">2026</span> Andrés Sarria.</span>
+            <button type="button" class="footer-cmd-hint" id="footer-cmd-btn">
+                <kbd>Ctrl</kbd> + <kbd>K</kbd> <span data-i18n="footer.shortcuts">Accesos rápidos</span>
+            </button>
+        </div>
+
+        <div class="footer-links">
+            <a href="https://github.com/Andresfss09" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+            <a href="https://www.linkedin.com/in/andres-felipe-sarria-sabogal-7839a4302/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+            <a href="mailto:andressarriasabogal@gmail.com" aria-label="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+            <a href="#hero" class="back-top" aria-label="Volver arriba" title="Volver arriba"><i class="fas fa-arrow-up" aria-hidden="true"></i></a>
         </div>
     </div>
-    <div class="footer-line"></div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script src="script.js"></script>
-<script src="github.js"></script>
+<!-- COMMAND PALETTE (Ctrl+K / Cmd+K) -->
+<div id="cmd-backdrop" class="cmd-backdrop" hidden aria-hidden="true">
+    <div class="cmd-dialog" role="dialog" aria-modal="true" aria-labelledby="cmd-input">
+        <div class="cmd-input-wrap">
+            <i class="fas fa-magnifying-glass" aria-hidden="true"></i>
+            <input type="text" id="cmd-input" placeholder="Escribe un comando o sección..." autocomplete="off" spellcheck="false">
+            <kbd>ESC</kbd>
+        </div>
+        <ul id="cmd-list" class="cmd-list" role="listbox"></ul>
+        <div class="cmd-footer">
+            <span><kbd>↑</kbd> <kbd>↓</kbd> navegar</span>
+            <span><kbd>↵</kbd> ejecutar</span>
+            <span><kbd>ESC</kbd> cerrar</span>
+        </div>
+    </div>
+</div>
+
+<!-- TOAST NOTIFICATION -->
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+<script src="script.js" defer></script>
+<script src="github.js" defer></script>
 </body>
 </html>
