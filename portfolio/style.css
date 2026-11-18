@@ -242,21 +242,27 @@ ul, ol { list-style: none; }
 
 .brand-mark {
     position: relative;
-    width: 38px;
-    height: 38px;
-    border-radius: 10px;
-    background: var(--surface-2);
-    border: 1px solid var(--border-strong);
+    width: 40px;
+    height: 40px;
+    border-radius: 11px;
+    background: #eef2f7;
+    border: 1.5px solid var(--border-strong);
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: 0.95rem;
-    letter-spacing: -0.02em;
-    color: var(--text);
+    flex-shrink: 0;
+    box-shadow: var(--shadow-sm);
 }
-.brand-mark-sm { width: 34px; height: 34px; font-size: 0.85rem; }
+.brand-mark-sm { width: 36px; height: 36px; border-radius: 10px; }
+
+.brand-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: inherit;
+    display: block;
+}
 
 .brand-status {
     position: absolute;

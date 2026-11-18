@@ -366,9 +366,6 @@
         const repoSearch = document.getElementById('repo-search');
         if (repoSearch) repoSearch.placeholder = tDyn('searchRepoPlaceholder');
 
-        const cmdInput = document.getElementById('cmd-input');
-        if (cmdInput) cmdInput.placeholder = tDyn('cmdPlaceholder');
-
         const cfName = document.getElementById('cf-name');
         if (cfName) cfName.placeholder = tDyn('phName');
         const cfEmail = document.getElementById('cf-email');
@@ -756,169 +753,6 @@
         }
     }
 
-    /* ─── COMMAND PALETTE (Ctrl+K / Cmd+K) ──────────────────── */
-    function initCommandPalette() {
-        const backdrop = document.getElementById('cmd-backdrop');
-        const input = document.getElementById('cmd-input');
-        const list = document.getElementById('cmd-list');
-        const triggers = [
-            document.getElementById('cmd-trigger'),
-            document.getElementById('footer-cmd-btn')
-        ].filter(Boolean);
-
-        if (!backdrop || !input || !list) return;
-
-        let activeIndex = 0;
-        let filtered = [];
-
-        function getCommands() {
-            const es = currentLang === 'es';
-            return [
-                { icon: 'fa-user', label: es ? 'Ir a Perfil Profesional' : 'Go to Professional Profile', tag: '#about', run: () => jump('#about') },
-                { icon: 'fa-layer-group', label: es ? 'Ir a Stack & Capacidades' : 'Go to Stack & Capabilities', tag: '#skills', run: () => jump('#skills') },
-                { icon: 'fa-code-branch', label: es ? 'Ir a Proyectos de GitHub' : 'Go to GitHub Projects', tag: '#projects', run: () => jump('#projects') },
-                { icon: 'fa-award', label: es ? 'Ir a Trayectoria & Certificaciones Cisco' : 'Go to Education & Cisco Certifications', tag: '#trajectory', run: () => jump('#trajectory') },
-                { icon: 'fa-paper-plane', label: es ? 'Ir a Contacto / Contratación' : 'Go to Contact / Hiring', tag: '#contact', run: () => jump('#contact') },
-                { icon: 'fa-file-pdf', label: es ? 'Descargar Hoja de Vida (PDF)' : 'Download Resume (PDF)', tag: 'cv.pdf', run: () => downloadCv() },
-                { icon: 'fa-copy', label: es ? 'Copiar correo electrónico' : 'Copy email address', tag: EMAIL, run: () => copyText(EMAIL, tDyn('copiedEmail')) },
-                { icon: 'fa-brands fa-whatsapp', label: es ? 'Escribir por WhatsApp' : 'Message on WhatsApp', tag: '+57 318 575 3889', run: () => window.open(PHONE_WA, '_blank', 'noopener,noreferrer') },
-                { icon: 'fa-brands fa-github', label: es ? 'Abrir perfil de GitHub' : 'Open GitHub Profile', tag: '@Andresfss09', run: () => window.open(GITHUB_URL, '_blank', 'noopener,noreferrer') },
-                { icon: 'fa-brands fa-linkedin-in', label: es ? 'Abrir perfil de LinkedIn' : 'Open LinkedIn Profile', tag: 'LinkedIn', run: () => window.open(LINKEDIN_URL, '_blank', 'noopener,noreferrer') },
-                { icon: 'fa-circle-half-stroke', label: es ? 'Cambiar tema Claro / Oscuro' : 'Toggle Light / Dark Theme', tag: 'Theme', run: () => {
-                    const current = document.documentElement.getAttribute('data-theme') || 'dark';
-                    applyTheme(current === 'dark' ? 'light' : 'dark', true);
-                } },
-                { icon: 'fa-language', label: es ? 'Switch language to English (EN)' : 'Cambiar idioma a Español (ES)', tag: 'ES / EN', run: () => applyLanguage(currentLang === 'es' ? 'en' : 'es', true) }
-            ];
-        }
-
-        function jump(hash) {
-            const target = document.querySelector(hash);
-            if (target) target.scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function downloadCv() {
-            const a = document.createElement('a');
-            a.href = 'cv.pdf';
-            a.download = 'CV-Andres-Felipe-Sarria-Sabogal.pdf';
-            document.body.appendChild(a);
-            a.click();
-            a.remove();
-        }
-
-        function render(query) {
-            const q = (query || '').trim().toLowerCase();
-            const cmds = getCommands();
-            filtered = q
-                ? cmds.filter((c) => (c.label + ' ' + c.tag).toLowerCase().includes(q))
-                : cmds;
-
-            activeIndex = 0;
-            list.innerHTML = '';
-
-            if (!filtered.length) {
-                const li = document.createElement('li');
-                li.className = 'cmd-item';
-                li.textContent = currentLang === 'es' ? 'Sin resultados para esa búsqueda.' : 'No matching commands found.';
-                list.appendChild(li);
-                return;
-            }
-
-            filtered.forEach((cmd, idx) => {
-                const li = document.createElement('li');
-                const btn = document.createElement('button');
-                btn.type = 'button';
-                btn.className = 'cmd-item' + (idx === activeIndex ? ' selected' : '');
-                btn.setAttribute('role', 'option');
-                btn.setAttribute('aria-selected', String(idx === activeIndex));
-
-                const iconCls = cmd.icon.startsWith('fa-brands') ? cmd.icon : 'fas ' + cmd.icon;
-                btn.innerHTML = `
-                    <span class="cmd-item-left">
-                        <i class="${iconCls}" aria-hidden="true"></i>
-                        <span></span>
-                    </span>
-                    <span class="cmd-item-tag"></span>
-                `;
-                btn.querySelector('.cmd-item-left span').textContent = cmd.label;
-                btn.querySelector('.cmd-item-tag').textContent = cmd.tag;
-
-                btn.addEventListener('click', () => {
-                    close();
-                    cmd.run();
-                });
-                btn.addEventListener('mouseenter', () => {
-                    activeIndex = idx;
-                    updateSelection();
-                });
-
-                li.appendChild(btn);
-                list.appendChild(li);
-            });
-        }
-
-        function updateSelection() {
-            const items = list.querySelectorAll('button.cmd-item');
-            items.forEach((btn, i) => {
-                const sel = i === activeIndex;
-                btn.classList.toggle('selected', sel);
-                btn.setAttribute('aria-selected', String(sel));
-                if (sel) btn.scrollIntoView({ block: 'nearest' });
-            });
-        }
-
-        function open() {
-            backdrop.hidden = false;
-            backdrop.setAttribute('aria-hidden', 'false');
-            input.value = '';
-            render('');
-            setTimeout(() => input.focus(), 10);
-        }
-
-        function close() {
-            backdrop.hidden = true;
-            backdrop.setAttribute('aria-hidden', 'true');
-        }
-
-        triggers.forEach((btn) => btn.addEventListener('click', open));
-
-        backdrop.addEventListener('click', (e) => {
-            if (e.target === backdrop) close();
-        });
-
-        input.addEventListener('input', () => render(input.value));
-
-        input.addEventListener('keydown', (e) => {
-            if (!filtered.length) return;
-            if (e.key === 'ArrowDown') {
-                e.preventDefault();
-                activeIndex = (activeIndex + 1) % filtered.length;
-                updateSelection();
-            } else if (e.key === 'ArrowUp') {
-                e.preventDefault();
-                activeIndex = (activeIndex - 1 + filtered.length) % filtered.length;
-                updateSelection();
-            } else if (e.key === 'Enter') {
-                e.preventDefault();
-                const cmd = filtered[activeIndex];
-                if (cmd) {
-                    close();
-                    cmd.run();
-                }
-            }
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
-                e.preventDefault();
-                if (backdrop.hidden) open();
-                else close();
-            } else if (e.key === 'Escape' && !backdrop.hidden) {
-                close();
-            }
-        });
-    }
-
     /* ─── FOOTER YEAR ───────────────────────────────────────── */
     function initYear() {
         const y = document.getElementById('footer-year');
@@ -937,7 +771,6 @@
         initReveal();
         initCopyButtons();
         initContactForm();
-        initCommandPalette();
         initYear();
     });
 })();
